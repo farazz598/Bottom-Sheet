@@ -1,19 +1,89 @@
-.sheet {
-  position: fixed; inset: 0;
-  background: #fff;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
-  box-shadow: 0 -4px 16px rgba(0,0,0,0.15);
-  touch-action: none;         /* smooth touch drag */
-  will-change: transform;
-  display: flex; flex-direction: column;
-}
-.handle {
-  width: 40px; height: 4px;
-  background: #ccc; border-radius: 2px;
-  margin: 8px auto;
-}
-.content { padding: 1rem 1.5rem; overflow-y: auto; flex: 1; }
-@media (min-width: 640px) {
-  .sheet { max-width: 600px; margin: 0 auto; left: 0; right: 0; }
-}
+/* =====  THEME  ===== */
+:root {
+    --grad-from: #fb923c;   /* orange‑400 */
+    --grad-to:   #facc15;   /* yellow‑400 */
+    --accent:    #7c3aed;   /* violet‑600 */
+    --text-on:   #ffffff;
+  }
+  
+  /* =====  BACKDROP  ===== */
+  .backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(2px);
+  }
+  
+  /* =====  SHEET  ===== */
+  .sheet {
+    position: fixed;
+    inset: 0;                          /* full‑width on all devices */
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(
+      135deg,
+      var(--grad-from),
+      var(--grad-to)
+    );
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    touch-action: none;
+    will-change: transform;
+    color: var(--text-on);
+  }
+  
+  /* =====  HANDLE  ===== */
+  .handle {
+    width: 52px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 3px;
+    margin: 2px auto 2px;
+  }
+  
+  /* =====  SNAP BUTTONS  ===== */
+  .snap-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+  .snap-buttons button {
+    padding: 0.4rem 0.9rem;
+    border: 2px solid var(--text-on);
+    background: transparent;
+    border-radius: 9999px;
+    color: var(--text-on);
+    font-weight: 600;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .snap-buttons button:hover   { background: rgba(0,0,0,0.1); }
+  .snap-buttons button:active  { transform: scale(0.95); }
+  
+  /* =====  CONTENT  ===== */
+  .content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.25rem 1.5rem 2.5rem;
+  }
+  .content h2 { margin-top: 0; font-size: 1.75rem; font-weight: 800; }
+  .content button {
+    margin-top: 1rem;
+    padding: 0.6rem 1.4rem;
+    background: var(--accent);
+    color: var(--text-on);
+    border: none;
+    border-radius: 14px;
+    font-weight: 700;
+    box-shadow: 0 3px 9px rgba(0,0,0,0.25);
+    transition: transform 0.15s;
+  }
+  .content button:active { transform: scale(0.96); }
+  
+  /* =====  SCROLLBAR POLISH  ===== */
+  .content::-webkit-scrollbar { width: 6px; }
+  .content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+  }
+  
