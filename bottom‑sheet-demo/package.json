@@ -3,13 +3,15 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
- 
+
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "deploy": "npm run build && gh-pages -d dist"
+    "dev":    "vite",
+    "build":  "vite build",
+
+    "predeploy": "npm run build",
+    "deploy":    "gh-pages -d dist -b gh-pages -r https://github.com/farazz598/Bottom-Sheet.git"
   },
+
   "dependencies": {
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
