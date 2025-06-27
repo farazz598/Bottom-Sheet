@@ -1,35 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import BottomSheet from "./components/BottomSheet";
+import "./index.css";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [open, setOpen] = useState(true); // start open for demo
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+      <button className="open-btn" onClick={() => setOpen(true)}>
+        Show Bottom Sheet
+      </button>
 
-export default App
+      {open && (
+        <BottomSheet
+          onClose={() => setOpen(false)}
+          snapPoints={[0, 0.5, 0.92]}   /* 0 = fully open, 0.92 ≈ closed */
+          initialSnap={1}               /* half‑open on mount */
+        >
+          <div className="content">
+            <h2>Bottom Sheet Demo</h2>
+            <p>Drag me ✋ or use the buttons.</p>
+            <button onClick={() => alert("Action!")}>Do something</button>
+          </div>
+        </BottomSheet>
+      )}
+    </>
+  );
+}

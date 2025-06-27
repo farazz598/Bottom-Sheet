@@ -1,0 +1,19 @@
+.sheet {
+  position: fixed; inset: 0;
+  background: #fff;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  box-shadow: 0 -4px 16px rgba(0,0,0,0.15);
+  touch-action: none;         /* smooth touch drag */
+  will-change: transform;
+  display: flex; flex-direction: column;
+}
+.handle {
+  width: 40px; height: 4px;
+  background: #ccc; border-radius: 2px;
+  margin: 8px auto;
+}
+.content { padding: 1rem 1.5rem; overflow-y: auto; flex: 1; }
+@media (min-width: 640px) {
+  .sheet { max-width: 600px; margin: 0 auto; left: 0; right: 0; }
+}

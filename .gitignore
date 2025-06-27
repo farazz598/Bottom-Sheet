@@ -1,0 +1,57 @@
+# ───────── CORE NODE / PACKAGE MANAGER ─────────
+node_modules/
+.package-lock.json
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-lock.yaml
+
+# ───────── BUILD OUTPUT ─────────
+dist/
+build/
+.vite/
+.next/
+out/
+
+# ───────── ENV / CONFIG SECRETS ─────────
+.env
+.env.*           # .env.local, .env.production etc.
+
+# ───────── IDEs / EDITORS ─────────
+# VS Code
+.vscode/
+# JetBrains IDEs
+.idea/
+# Others
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# ───────── SYSTEM FILES ─────────
+.DS_Store
+Thumbs.db
+ehthumbs.db
+*.swp
+*.bak
+
+# ───────── TEMP & CACHE ─────────
+*.log
+*.tmp
+*.temp
+.cache/
+.cache-loader/
+coverage/
+*.tgz
+
+# ───────── TEST OUTPUT ─────────
+jest-html-reporters-*.html
+cypress/videos/
+cypress/screenshots/
+
+# ───────── STORYBOOK ─────────
+storybook-static/
+
+# ───────── MISC ─────────
+# Mac M1/Intel build artefacts
+*.xcuserstate
